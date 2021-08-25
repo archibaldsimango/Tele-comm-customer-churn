@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        label{
+            width:100px;
+            display: inline-block;
+        }
+    input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+        input[type=number], select {
+    width:50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+        input[type=submit] {
+    width:57%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+ 
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TELE-COMM CUSTOMER CHURN PREDICTION SYSTEM</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
+</head>
+    <h1 style="text-align: center;color:#4CAF50">TELE-COMM CUSTOMER CHURN PREDICTION SYSTEM</h1>
+<body style="background-color:antiquewhite">
+    <div id="form">
+    <form action="{{ url_for('main') }}" method="POST">
+          <label for="SeniorCitizen">SeniorCitizen:</label>
+          <input type="number" id="SeniorCitizen" name="SeniorCitizen" placeholder="1:Yes   0:No"required><br>
+
+          <label for="Partner">Partner:</label>
+          <input type="number" id="Partner" name="Partner" placeholder="1:Yes   0:No"required><br>
+
+          <label for="Dependentsr">Dependents:</label>
+          <input type="number" id="Dependents" name="Dependents" placeholder="1:Yes   0:No"required><br>
+
+          <label for="tenure">tenure:</label>
+          <input type="number" id="tenure" name="tenure" placeholder="Enter tenure years."required><br>
+
+          <label for="OnlineSecurity">OnlineSecurity:</label>
+          <input type="number" id="OnlineSecurity" name="OnlineSecurity" placeholder="0:No   1:Yes   2:No internet service."required><br>
+
+          <label for="OnlineBackup">OnlineBackup:</label>
+          <input type="number" id="OnlineBackup" name="OnlineBackup" placeholder="0:No   1:Yes   2:No internet service."required><br>
+
+          <label for="DeviceProtection">DeviceProtection:</label>
+          <input type="number" id="DeviceProtection" name="DeviceProtection" placeholder="0:No   1:Yes   2:No internet service."required><br>
+
+          <label for="TechSupport">TechSupport:</label>
+          <input type="number" id="TechSupport" name="TechSupport" placeholder="1:No   2:Yes   0:No internet service."required><br>
+
+          <label for="Contract">Contract:</label>
+          <input type="number" id="Contract" name="Contract" placeholder="0:Month-to-month    1:One year   2:Two year"required><br>
+
+          <label for="PaperlessBilling">PaperlessBilling:</label>
+          <input type="number" id="PaperlessBilling" name="PaperlessBilling" placeholder="1:Yes   0:No"required><br>
+
+          <label for="PaymentMethod">PaymentMethod:</label>
+          <input type="number" id="PaymentMethod" name="PaymentMethod" placeholder="2:Electronic check    3:Mailed check    0:Bank transfer (automatic)   1:Credit card (automatic)"required><br>
+
+          <label for="MonthlyCharges">MonthlyCharges:</label>
+          <input name="MonthlyCharges" type="number" min="0.00" step="0.01" placeholder="Enter Monthly charge e.g 58.50"required><br>
+
+          <label for="TotalCharges">TotalCharges:</label>
+          <input name="TotalCharges" type="number" min="0.00" step="0.01" placeholder="Enter  Total charge e.g 758.70"required><br>
+
+          <input type="submit" value="PREDICT">
+</form>
+    </div>
+    <div id="xgboost" style="background-color:#4CAF50;color: white;width:720px;border: none;
+    border-radius: 4px; padding: 14px 20px;">
+        <h>XGBOOST PREDICTION OUTCOME:</h>
+        <p>RESULT: {{result1}}</p>
+        <p>CONFIDENCE FACTOR: {{confidence_factor1}}</p>
+          
+    </div> 
+    <br>
+          
+</body>
+</html>
